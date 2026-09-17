@@ -6,8 +6,10 @@ plugins {
 
 android {
     namespace = "com.example.ecommfront"
-    compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    compileSdk = flutter.compileSdkVersion    // Pinned to the NDK already installed locally to avoid Gradle auto-downloading
+    // via the new Android CLI tool, which currently crashes on Windows
+    // (STATUS_STACK_BUFFER_OVERRUN) — see https://github.com/flutter/flutter/issues/192111
+    ndkVersion = "30.0.16248370"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
